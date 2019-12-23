@@ -1,0 +1,38 @@
+{% extends "layoutUser.njk" %}
+
+{% block content %}
+    
+    <!-- ===== MAIN ===== -->
+
+    <main class="bg-main max-width">
+        <div class="intro">
+            <h1>As melhores receitas</h1>
+            <p>Aprenda a construir os melhores pratos com receitas 
+            criadas por profissionais do mundo inteiro.</p>
+        </div>
+        <img src="/assets/chef.png" alt="" srcset="">
+    </main>
+    <section class="max-width">
+
+    <!-- ===== RECIPES ===== -->   
+
+        <div class="recipes">
+
+            <h2>Mais acessadas</h2>
+
+            <div class="recipes-item">
+                {% for item in items %}
+                <div id="{{ loop.index }}">
+
+                    <img src="{{item.image}}" alt="Foto da receita {{item.title}}" id="{{ loop.index }}">
+
+                    <h3 id="{{ loop.index }}">{{item.title}}</h3>
+                    <p>{{item.author}}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+<script src="/js/openPageUser.js"></script>
+{% endblock %}

@@ -1,0 +1,68 @@
+/*===== RECIPE ===== */
+
+.recipe-description {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.recipe-description h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.recipe-description p {
+    color: #777;
+    font-size: 20px;
+}
+
+.recipe-info {
+    padding: 20px 0 40px 0;
+}
+
+.recipe dl dt {
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.recipe dl dd {
+    color: #444;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 10px 0;
+}
+
+.js-accordion dd {
+    display: none;
+    animation: slideDown;
+}
+
+.js-accordion dt:after {
+    content: 'mostrar';
+    color: #999;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+.js-accordion dt.ativo:after {
+    content: 'esconder';
+}
+
+.js-accordion dd.ativo {
+    display: block;
+    animation: slideDown;
+    animation-duration: 700ms;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+
+    }
+
+    to {
+        opacity: 1;
+    }
+}

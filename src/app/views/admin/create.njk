@@ -1,0 +1,76 @@
+{% extends "layoutAdmin.njk" %}
+
+{% block content %}
+
+<section class="max-width">
+
+    <form class="form" action="/admin/recipes" method="POST">
+    
+        <div class="intro">
+            <h2>Criando Receita</h2>
+            <button id="only-button" type="submit">Salva receita</button>
+        </div>
+
+        <h3>Nome da receita</h3>
+        <div>
+            <input 
+                type="text" 
+                name="title"
+            >
+        </div>
+
+        <h3>Autor da receita</h3>
+        <div>
+            <input 
+                type="text" 
+                name="author"
+            >
+        </div>
+
+        <h3>Imagem da receita</h3>
+        <div>
+            <input 
+                type="url" 
+                name="image"
+                placeholder="https://"
+            >
+        </div>
+
+        <h3>Ingredientes</h3>
+        <div id="ingredients">       
+            <div class="ingredient">
+                <input 
+                    type="text" 
+                    name="ingredients[]"
+                    value=""
+                >
+            </div>
+        </div>
+        <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+
+        <h3>Modo de preparo</h3>
+        <div id="preparations">
+            <div class="preparation">
+                <input 
+                    type="text"
+                    name="preparation[]"
+                    value=""
+                >
+            </div>
+        </div>
+        <button type="button" class="add-preparation">Adicionar novo passo</button>
+
+        <h3>Informações adicionais</h3>
+        <div>
+            <textarea name="information">
+            </textarea>
+        </div>
+
+    </form>
+
+</section>
+
+<script src="/js/addIngredient.js"></script>
+<script src="/js/addPreparation.js"></script>
+
+{% endblock content %}

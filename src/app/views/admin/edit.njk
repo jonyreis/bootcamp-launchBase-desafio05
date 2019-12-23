@@ -1,0 +1,79 @@
+{% extends "layoutAdmin.njk" %}
+
+{% block content %}
+
+<section class="max-width">
+
+    <div class="intro">
+        <div>
+            <h2>Editando Receita</h2>
+        </div>
+        <div class="button">
+            <form action="/admin/recipes?_method=DELETE" method="POST">
+                <input type="hidden" name="id" value="{{recipe.id}}">
+                <button id="del-button" type="submit">Deletar</button>
+            </form>
+        </div>
+    </div>
+
+    <form class="form" action="/admin/recipes?_method=PUT" method="POST">
+        
+        <h3>Imagem da receita</h3>
+        <div>
+            <input 
+                type="url" 
+                name="image"
+                placeholder="https://"
+                value="{{ recipe.image }}"
+            >
+        </div>
+
+        <h3>Ingredientes</h3>
+        <div id="ingredients">       
+            <div class="ingredient">
+                <input 
+                    type="text" 
+                    name="ingredients[]"
+                    value="{{ recipe.insgredients }}"
+                    
+                >
+            </div>
+        </div>
+        <button type="button" class="add-ingredient">Adicionar novo ingrediente</button>
+
+        <h3>Modo de preparo</h3>
+        <div id="preparations">
+            <div class="preparation">
+                <input 
+                    type="text"
+                    name="preparation[]"
+                    value="{{ recipe.preparation }}"
+                >
+            </div>
+        </div>
+        <button type="button" class="add-preparation">Adicionar novo passo</button>
+
+        <h3>Informações adicionais</h3>
+        <div>
+            <textarea 
+            name="information"
+            value="{{ recipe.information }}"
+            
+            >
+            </textarea>
+        </div>
+        
+        <button id="only-button" type="submit">Salva receita</button>
+
+        <input 
+            type="hidden" 
+            name="id" 
+            value="{{ recipe.id }}">
+    </form>
+
+</section>
+
+<script src="/js/addIngredient.js"></script>
+<script src="/js/addPreparation.js"></script>
+
+{% endblock content %}

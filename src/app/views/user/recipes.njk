@@ -1,0 +1,35 @@
+{% extends "layoutUser.njk" %}
+
+{% block head %}
+    
+    <title>Receitas | Foodfy</title>
+
+{% endblock %}
+
+{% block content %}
+    
+    <section class="max-width">
+
+    <!-- ===== RECIPES ===== -->        
+
+        <div class="recipes">
+
+            <h2>Receitas</h2>
+
+            <div class="recipes-item">
+                {% for item in items %}
+                <div id="{{ loop.index }}">
+
+                    <img src="{{item.image}}" alt="Foto da receita {{item.title}}" id="{{ loop.index }}">
+
+                    <h3 id="{{ loop.index }}">{{item.title}}</h3>
+                    <p>{{item.author}}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </section>
+<script src="/js/openPageUser.js"></script>
+{% endblock %}

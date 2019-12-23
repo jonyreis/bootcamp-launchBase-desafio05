@@ -1,0 +1,17 @@
+/* ===== SOBRE CSS ===== */
+
+.sobre {
+    color: #111;
+}
+
+.sobre p {
+    color: #444444;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 30px 0;
+}
+
+.sobre h3 {
+    font-size: 20px;
+    font-weight: bold;
+}

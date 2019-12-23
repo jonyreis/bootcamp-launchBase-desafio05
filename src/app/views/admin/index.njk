@@ -1,0 +1,29 @@
+{% extends 'layoutAdmin.njk' %}
+
+{% block content %}
+
+<section class="max-width">
+        
+    <div class="intro">
+        <h2>Criando Receita</h2>
+        <a href="/admin/recipes/create" id="only-button" style="text-decoration: none;">Nova receita</a>
+    </div>
+
+    <div class="recipes-items">
+
+        {% for item in items %}
+        <div class="item">
+            <div class="image" style="background: url({{ item.image }}) no-repeat center center / cover" >
+            </div>
+            <div class="description">
+                <h3>{{ item.title }}</h3>
+                <p>por {{ item.author }}</p>
+                <a id="{{ loop.index }}">Visualizar</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+<script src="/js/openPageAdmin.js"></script>
+{% endblock content %}
