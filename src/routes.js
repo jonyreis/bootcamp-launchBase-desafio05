@@ -7,7 +7,7 @@ const routes = express.Router()
 routes.get('/', users.home)
 routes.get('/sobre', users.sobre)
 routes.get('/recipes', users.recipes)
-routes.get('/recipes/:index', users.showIndex)
+routes.get('/recipes/:index', users.showRecipe)
 
 
 routes.get('/admin/recipes', recipes.index) // Mostrar a lista de receitas
