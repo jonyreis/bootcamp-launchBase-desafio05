@@ -1,0 +1,28 @@
+{% extends 'layoutAdmin.njk' %}
+
+{% block content %}
+
+<section class="max-width">
+        
+    <div class="intro">
+        <h2>Gerenciar chefs</h2>
+        <a href="/admin/chefs/create" id="only-button" style="text-decoration: none;">Novo chef</a>
+    </div>
+
+    <div class="recipes-items">
+
+        {% for chef in chefs %}
+        <div class="item">
+            <div class="image" style="background: url({{ chef.avatar_url }}) no-repeat center center / cover" >
+            </div>
+            <div class="description">
+                <h3>{{ chef.name }}</h3>
+                <a id="{{ loop.index }}">Visualizar</a>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+<script src="/js/openPageAdmin.js"></script>
+{% endblock content %}

@@ -1,15 +1,15 @@
-const Admin = require('../models/Admin')
+const Recipe = require('../models/Recipe')
 
 
 module.exports = {
     index(req, res) {
 
-        Admin.all(function(items) {
-            return res.render('admin/index', { items })
+        Recipe.all(function(items) {
+            return res.render('admin/recipes', { items })
         })
     },
     create(req, res) {
-        return res.render('admin/create')
+        return res.render('admin/createRecipe')
     },
     post(req, res) {
         const keys = Object.keys(req.body)
@@ -20,12 +20,12 @@ module.exports = {
             }
         }
 
-        Admin.create(req.body, function(items) {
+        Recipe.create(req.body, function(items) {
             return res.redirect(`/admin/recipes/${items.id}`)
         })
     },
     show(req, res) {
-        Admin.find(req.params.id, function(items) {
+        Recipe.find(req.params.id, function(items) {
             if(!items) return res.send('Recipe not found!')
 
             return res.render('admin/recipe', { items })
@@ -33,7 +33,7 @@ module.exports = {
 
     },
     edit(req, res) {
-        Admin.update(req.params.id, function(items) {
+        Recipe.update(req.params.id, function(items) {
             if(!items) return res.send('Recipe not found!')
 
             return res.render('admin/edit', { items })

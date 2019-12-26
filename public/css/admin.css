@@ -19,6 +19,23 @@ body, a {
     max-width: 960px;
 }
 
+.nav-menu {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+}
+
+.nav-menu ul li {
+    display: inline;
+    font-size: 15px;
+    margin-left: 30px;
+    text-transform: uppercase;
+}
+
+.nav-menu a {
+    color: #fff;
+}
+
 /* === Index === */
 
 .intro {

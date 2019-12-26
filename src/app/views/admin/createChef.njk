@@ -1,0 +1,35 @@
+{% extends "layoutAdmin.njk" %}
+
+{% block content %}
+
+<section class="max-width">
+
+    <form class="form" action="/admin/chefs" method="POST">
+    
+        <div class="intro">
+            <h2>Criando chef</h2>
+            <button id="only-button" type="submit">Salva chef</button>
+        </div>
+
+        <h3>Nome</h3>
+        <div>
+            <input 
+                type="text" 
+                name="name"
+            >
+        </div>
+
+        <h3>Foto do Chef</h3>
+        <div>
+            <input 
+                type="text" 
+                name="avatar_url"
+                placeholder="https://"
+            >
+        </div>
+
+    </form>
+
+</section>
+
+{% endblock content %}

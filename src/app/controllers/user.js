@@ -49,5 +49,22 @@ module.exports = {
 
             return res.render('user/show', { items })
         })
+    },
+    chefs(req, res) {
+
+        User.all(function(chefs) {
+            return res.render('user/chefs', { chefs })
+        })
+    },
+    showRecipe(req, res) {
+
+        User.find(req.params.id, function(items) {
+            if(!items) return res.send('AAA not found!')
+
+
+            // items.created_at = date(items.created_at).format
+
+            return res.render('user/show', { items })
+        })
     }
 }
