@@ -16,19 +16,15 @@ body, a {
 
 .max-width {
     margin: 0 auto;
-    max-width: 960px;
+    max-width: 940px;
 }
 
 /* ==== HEADER ==== */
 
 .nav-menu {
     display: grid;
-    grid-template-columns:1fr 2fr 1fr; 
+    grid-template-columns:1fr 2fr 2fr; 
     margin: 30px 0;
-}
-
-.nav-menu img {
-    margin-right: 60px;
 }
 
 .nav-menu ul li {
@@ -37,12 +33,32 @@ body, a {
     margin-right: 10px;
 }
 
-.nav-menu a:hover {
+.nav-menu ul li a:hover {
     font-weight: 500;
 }
 
-.nav-menu ul li:hover {
+.nav-menu form {
+    text-align: right;
+}
+
+.nav-menu form input {
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    width: 246px;
+    height: 37px;
+}
+
+.nav-menu form button {
+    background-color: #6558C3;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
     font-weight: bold;
+    width: 91px;
+    height: 37px;
+    cursor: pointer;
 }
 
 /* ==== MAIN ==== */

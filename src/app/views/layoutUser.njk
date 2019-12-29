@@ -30,17 +30,13 @@
                 <li><a href="/recipes">Receitas</a></li>
                 <li><a href="/chefs">Chefs</a></li>
             </ul>
-            <form action="" method="get">
-                <input type="search" name="" id="">
-                <button type="submit">Buscar</button>            
-            </form>
+            {% block header %}
+            {% endblock %}
         </nav>
     </header>
 
-
     {% block content %}
     {% endblock %}
-
 
     <footer class="footer">
         <p>Todos direitos reservados, receitas foodfy.</p>

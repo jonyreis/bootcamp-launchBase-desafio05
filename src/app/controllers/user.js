@@ -56,7 +56,7 @@ module.exports = {
             return res.render('user/chefs', { chefs })
         })
     },
-    showRecipe(req, res) {
+    showChefs(req, res) {
 
         User.find(req.params.id, function(items) {
             if(!items) return res.send('AAA not found!')
