@@ -1,8 +1,10 @@
 {% extends "layoutUser.njk" %}
 
 {% block head %}
-    
-    <title>Receitas | Foodfy</title>
+
+    <link rel="stylesheet" href="/css/user/chefs.css">    
+
+    <title>Chefs | Foodfy</title>
 
 {% endblock %}
 
@@ -10,23 +12,21 @@
     
     <section class="max-width">
 
-    <!-- ===== RECIPES ===== -->        
+    <!-- ===== CHEFS ===== -->        
 
-        <div class="recipes">
+        <div class="chefs">
 
-            <h2>Chefs</h2>
-
-            <div class="recipes-item">
                 {% for chef in chefs %}
-                <div id="{{ loop.index }}">
-
-                    <img src="{{chef.avatar_url}}" alt="Foto da receita {{item.title}}" id="{{ loop.index }}">
-
-                    <h3 id="{{ loop.index }}">{{item.title}}</h3>
-                    <p>{{item.author}}</p>
+                <div class="chefs-item" id="{{ loop.index }}">
+                    <div class="avatar" style="background: url({{ chef.avatar_url }}) no-repeat center center / cover" >
+                    </div>
+                    {# <img src="{{chef.avatar_url}}" alt="Foto da receita {{item.title}}" id="{{ loop.index }}"> #}
+                    <div class="description">
+                        <h3 id="{{ loop.index }}">{{chef.name}}</h3>
+                        <p>3 Receitas</p>
+                    </div>
                 </div>
                 {% endfor %}
-            </div>
 
         </div>
 

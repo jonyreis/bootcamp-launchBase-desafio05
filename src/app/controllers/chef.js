@@ -1,6 +1,5 @@
 const Chef = require('../models/Chef')
 
-
 module.exports = {
     index(req, res) {
 
@@ -25,26 +24,37 @@ module.exports = {
         })
     },
     show(req, res) {
-        Chef.find(req.params.id, function(chefs) {
-            if(!chefs) return res.send('Chefs not found!')
+        Chef.find(req.params.id, function(chef) {
+            if(!chef) return res.send('Chef not found!')
 
-            return res.render('admin/chef', { chefs })
+            return res.render('admin/chef', { chef })
         })
 
     },
     edit(req, res) {
-        Chef.update(req.params.id, function(items) {
-            if(!items) return res.send('Recipe not found!')
+        Chef.find(req.params.id, function(chefs) {
+            if(!chefs) return res.send('Chef not found!')
 
-            return res.render('admin/edit', { items })
+            return res.render('admin/editChef', { chefs })
         })
     },
     put(req, res) {
-        return
+        const keys = Object.keys(req.body)
 
+        for (key of keys) {
+            if (req.body[key] == "") {
+                return res.send('aaa, fill all fields!')
+            }
+        }
+        
+        Chef.update(req.body, function() {
+            return res.redirect(`/admin/chefs/${req.body.id}`)
+        })
     },
     delete(req, res) {
-        return
+        Chef.delete(req.body.id, function() {
+            return res.redirect("/admin/chefs")
+        })
 
     }
 }

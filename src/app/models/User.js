@@ -11,16 +11,28 @@ module.exports = {
             callback(results.rows)
         })
     },
+    // find(id, callback) {
+    //     db.query(`
+    //         SELECT * 
+    //         FROM receipts
+    //         WHERE id = $1`, [id], function(err, results) {
+    //             if(err) throw `Database Error! ${err}`
+
+    //             callback(results.rows[0])
+    //     })
+    // },
     find(id, callback) {
+
         db.query(`
-            SELECT * 
+            SELECT receipts.*, chefs.name AS chef_name 
             FROM receipts
-            WHERE id = $1`, [id], function(err, results) {
+            LEFT JOIN chefs ON (receipts.chef_id = chefs.id)
+            WHERE receipts.id = $1`, [id], function(err, results) {
                 if(err) throw `Database Error! ${err}`
 
                 callback(results.rows[0])
-        })
-    }
+        }) 
+    },
     // create(data, callback) {
 
     //     const query = `
@@ -73,4 +85,12 @@ module.exports = {
 
     //     `
     // }
+
+    allchefs(callback) {
+        db.query(`SELECT * FROM chefs`, function(err, results) {
+            if(err) return res.send('Database Error!')
+
+            callback(results.rows)
+        })
+    }
 }

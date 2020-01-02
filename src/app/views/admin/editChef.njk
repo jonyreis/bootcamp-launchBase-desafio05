@@ -1,0 +1,71 @@
+{% extends "layoutAdmin.njk" %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="/css/admin/form.css">
+    <link rel="stylesheet" href="/css/admin/chef.css">
+
+{% endblock %}
+
+{% block content %}
+
+<section class="max-width">
+
+    <form action="/admin/chefs?_method=PUT" method="POST" class="form">
+        
+        <div class="intro">
+            <div>
+                <h2>Editando Chef</h2>
+            </div>
+
+            <div class="button">
+                <button id="del-button" type="submit" form="form-delete">Deletar</button>
+                <button id="only-button" type="submit">Salvar</button>
+                <input 
+                    type="hidden" 
+                    name="id" 
+                    value="{{ chefs.id }}">
+            </div>
+        </div>
+        
+        <h3>Nome</h3>
+        <div id="name-chef">       
+            <div class="name">
+                <input 
+                    type="text" 
+                    name="name"
+                    value="{{ chefs.name }}"
+                    
+                >
+            </div>
+        </div>
+
+        <h3>Foto do Chef</h3>
+        <div>
+            <input 
+                type="url" 
+                name="avatar_url"
+                placeholder="https://"
+                value="{{ chefs.avatar_url }}"
+            >
+        </div>
+
+    </form>
+
+    <form id="form-delete" action="/admin/chefs?_method=DELETE" method="POST">
+        <input type="hidden" name="id" value="{{chefs.id}}">
+    </form>
+
+</section>
+
+<script>
+    const formDelete = document.querySelector("#form-delete")
+    formDelete.addEventListener("submit", function (event) {
+        const confirmation = confirm("Deseja Deletar o Chef?")
+        if (!confirmation) {
+            event.preventDefault()
+        }
+    })
+</script>
+
+{% endblock content %}

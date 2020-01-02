@@ -1,0 +1,21 @@
+/* === Chef === */
+
+h2 {
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 28px;
+}
+
+.chef img {
+    border-radius: 50%;
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 40px auto 30px auto;
+}
+
+.chef-description {
+    text-align: center;
+    margin-bottom: 50px;
+}

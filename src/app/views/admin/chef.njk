@@ -2,9 +2,8 @@
 
 {% block head %}
 
-    <link rel="stylesheet" href="/css/recipe.css">
-
-    <title> {{chefs.title}} | Foodfy</title>
+    <link rel="stylesheet" href="/css/admin/form.css">
+    <link rel="stylesheet" href="/css/admin/chef.css">
 
 {% endblock %}
 
@@ -15,41 +14,30 @@
 <section class="max-width">
 
     <div class="intro">
-        <h2>Chef: {{ chefs.name }}</h2>
-        <a href="/admin/chefs/{{chefs.id}}/edit" id="only-button" style="text-decoration: none;">Editar chef</a>
+        <h2>Chef: {{ chef.name }}</h2>
+        <a href="/admin/chefs/{{chef.id}}/edit" id="only-button" style="text-decoration: none;">Editar chef</a>
     </div>
 
-    <div class="recipe">
+    <div class="chef">
 
-        <img src="{{chefs.avatar_url}}" alt="Fodo do {{item.title}}">
+        <img src="{{chef.avatar_url}}" alt="Fodo do {{chef.name}}">
         
-        <div class="recipe-description">
-            <h1>{{items.title}}</h1>
-            <p>por {{items.author}}</p>
+        <div class="chef-description">
+            <h1>{{ chef.name }}</h1>
+            <p>3 receitas </p>
 
         </div>
-        <div class="recipe-info ">
-            <dl class="js-accordion">
+       
+       <h2>Receitas</h2>
 
-                <dt>Ingredientes</dt>
-                <dd>
-                    {% for ingredients in items.ingredients %}
-                    <li>{{ingredients}}</li>
-                    {% endfor %}
-                </dd>
-
-                <dt>Modo de Preparo</dt>
-                <dd>
-                    {% for preparation in items.preparation %}   
-                    <li>{{preparation}}</li>
-                    {% endfor %}
-                </dd>
-
-                <dt>Informações adicionais</dt>
-                <dd>{{ items.information | striptags(true) | escape | nl2br }}</dd>
-            </dl>
-        </div>
-
+       {# {% for item in items %} #}
+        {# <div> #}
+            {# <a href="/recipes/{{ item.id }}"><img src="{{item.image}}" alt="Foto da receita {{item.title}}"></a> #}
+            {# <h3 id="{{ item.id }}">{{item.title}}</h3> #}
+            {# <p>{{item.chef_id}}</p> #}
+            {# <a href="/recipes/{{ item.id }}">{{item.title}}</a> #}
+        {# </div> #}
+        {# {% endfor %} #}
     </div>
 
 

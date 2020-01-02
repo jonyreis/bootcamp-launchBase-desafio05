@@ -1,5 +1,12 @@
 {% extends 'layoutAdmin.njk' %}
 
+{% block head %}
+    <link rel="stylesheet" href="/css/admin/form.css">
+    <link rel="stylesheet" href="/css/user/chefs.css">
+
+
+{% endblock %}
+
 {% block content %}
 
 <section class="max-width">
@@ -9,20 +16,19 @@
         <a href="/admin/chefs/create" id="only-button" style="text-decoration: none;">Novo chef</a>
     </div>
 
-    <div class="recipes-items">
+    <div class="chefs">
 
         {% for chef in chefs %}
-        <div class="item">
-            <div class="image" style="background: url({{ chef.avatar_url }}) no-repeat center center / cover" >
+        <div class="chefs-item">
+            <div class="image-chef" style="background: url({{ chef.avatar_url }}) no-repeat center center / cover" >
             </div>
             <div class="description">
                 <h3>{{ chef.name }}</h3>
-                <a id="{{ loop.index }}">Visualizar</a>
+                <a href="/admin/chefs/{{ chef.id }}">Visualizar</a>
             </div>
         </div>
         {% endfor %}
 
     </div>
 </section>
-<script src="/js/openPageAdmin.js"></script>
 {% endblock content %}

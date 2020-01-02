@@ -1,0 +1,32 @@
+/* === CHEFS === */
+
+.chefs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.chefs-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 30px;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+}
+
+.chefs-item .description h3 {
+    color: #111;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 21px;
+}
+
+.chefs-item .description p {
+    color: #666;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 16px;
+    margin-top: 5px;
+}

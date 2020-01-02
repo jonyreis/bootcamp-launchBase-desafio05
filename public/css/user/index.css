@@ -1,41 +1,4 @@
-/* ==== GENERAL STYLES ==== */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-img {
-    max-width: 100%;
-}
-
-body, a {
-    color: #111;
-    font-family: 'Roboto', sans-serif;
-}
-
-.max-width {
-    margin: 0 auto;
-    max-width: 940px;
-}
-
-/* ==== HEADER ==== */
-
-.nav-menu {
-    display: grid;
-    grid-template-columns:1fr 2fr 2fr; 
-    margin: 30px 0;
-}
-
-.nav-menu ul li {
-    display: inline;
-    font-size: 16px;
-    margin-right: 10px;
-}
-
-.nav-menu ul li a:hover {
-    font-weight: 500;
-}
+/* ==== MAIN ==== */
 
 .nav-menu form {
     text-align: right;
@@ -60,8 +23,6 @@ body, a {
     height: 37px;
     cursor: pointer;
 }
-
-/* ==== MAIN ==== */
 
 .bg-main {
     background: #FBDFDB;
@@ -105,7 +66,7 @@ body, a {
 .recipes-item {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
+    gap: 20px;
     margin-bottom: 60px;
 }
 
@@ -128,22 +89,4 @@ body, a {
 .recipes-item p {
     color: #777;
     font-size: 14px;
-}
-
-/* ==== FOOTER ==== */
-
-.footer {
-    background: #eee;
-    color: #999999;
-    padding: 12px 0;
-    font-size: 14px;
-    text-align: center;
-}
-
-footer p {
-    margin: 16px;
-}
-
-footer a {
-    color: #999;
 }

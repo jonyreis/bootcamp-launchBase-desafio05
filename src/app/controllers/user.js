@@ -21,10 +21,10 @@ const User = require('../models/User')
 // }
 
 module.exports = {
-    home(req, res) {
+    index(req, res) {
 
         User.all(function(items) {
-            return res.render('user/home', { items })
+            return res.render('user/index', { items })
         })
     },
     sobre(req, res) {
@@ -41,30 +41,18 @@ module.exports = {
     },
     showRecipe(req, res) {
 
-        User.find(req.params.id, function(items) {
-            if(!items) return res.send('AAA not found!')
-
-
+        User.find(req.params.id, function(item) {
+            if(!item) return res.send('Recipes not found!')
+            
             // items.created_at = date(items.created_at).format
-
-            return res.render('user/show', { items })
+            
+            return res.render('user/recipe', { item })
         })
     },
     chefs(req, res) {
 
-        User.all(function(chefs) {
+        User.allchefs(function(chefs) {
             return res.render('user/chefs', { chefs })
-        })
-    },
-    showChefs(req, res) {
-
-        User.find(req.params.id, function(items) {
-            if(!items) return res.send('AAA not found!')
-
-
-            // items.created_at = date(items.created_at).format
-
-            return res.render('user/show', { items })
         })
     }
 }

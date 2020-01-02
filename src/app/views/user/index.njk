@@ -1,5 +1,13 @@
 {% extends "layoutUser.njk" %}
 
+{% block head %}
+
+    <link rel="stylesheet" href="/css/user/index.css">
+    
+    <title>Home | Foodfy</title>
+
+{% endblock %}
+
 {% block header %}
     <form action="" method="get">
         <input type="search" name="" placeholder=" Buscar uma receita">
@@ -29,17 +37,15 @@
 
             <div class="recipes-item">
                 {% for item in items %}
-                <div id="{{ loop.index }}">
-
-                    <img src="{{item.image}}" alt="Foto da receita {{item.title}}" id="{{ loop.index }}">
-
-                    <h3 id="{{ loop.index }}">{{item.title}}</h3>
-                    <p>{{item.author}}</p>
+                <div>
+                    <a href="/recipes/{{ item.id }}"><img src="{{item.image}}" alt="Foto da receita {{item.title}}"></a>
+                    <a href="/recipes/{{ item.id }}"><h3>{{item.title}}</h3></a>
+                    <p>{{item.chef_id}}</p>
                 </div>
                 {% endfor %}
             </div>
 
         </div>
     </section>
-<script src="/js/openPageUser.js"></script>
+{# <script src="/js/openPageUser.js"></script> #}
 {% endblock %}
