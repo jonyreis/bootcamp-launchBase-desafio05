@@ -1,31 +1,51 @@
 {% extends "layoutAdmin.njk" %}
 
+{% block head %}
+
+    <link rel="stylesheet" href="/css/admin/form.css">
+
+{% endblock %}
+
 {% block content %}
 
 <section class="max-width">
 
-    <div class="intro">
-        <div>
-            <h2>Editando Receita</h2>
-        </div>
-        <div class="button">
-            <form action="/admin/recipes?_method=DELETE" method="POST">
-                <input type="hidden" name="id" value="{{recipe.id}}">
-                <button id="del-button" type="submit">Deletar</button>
-            </form>
-        </div>
-    </div>
-
-    <form class="form" action="/admin/recipes?_method=PUT" method="POST">
+    <form action="/admin/recipes?_method=PUT" method="POST" class="form">
         
+        <div class="intro">
+            <div>
+                <h2>Editando Receita</h2>
+            </div>
+
+            <div class="button">
+                    <button id="del-button" type="submit" form="form-delete">Deletar</button>
+                    <button id="only-button" type="submit">Salvar receita</button>    
+                    <input 
+                        type="hidden" 
+                        name="id" 
+                        value="{{items.id}}">
+            </div>
+        </div>
+
         <h3>Imagem da receita</h3>
         <div>
             <input 
                 type="url" 
                 name="image"
                 placeholder="https://"
-                value="{{ recipe.image }}"
+                value="{{ items.image }}"
             >
+        </div>
+
+        <h3>Chef</h3>
+        <div>
+            <select name="chef">
+                {% for chef in chefOptions %}
+                <option value="{{ chef.id }}" {% if receipts.chef_id == chef.id %}selected{% endif %}>
+                    {{ chef.name }}
+                </option>
+                {% endfor %}
+            </select>
         </div>
 
         <h3>Ingredientes</h3>
@@ -34,7 +54,7 @@
                 <input 
                     type="text" 
                     name="ingredients[]"
-                    value="{{ recipe.insgredients }}"
+                    value="{{ items.ingredients }}"
                     
                 >
             </div>
@@ -47,7 +67,7 @@
                 <input 
                     type="text"
                     name="preparation[]"
-                    value="{{ recipe.preparation }}"
+                    value="{{ items.preparation }}"
                 >
             </div>
         </div>
@@ -57,13 +77,12 @@
         <div>
             <textarea 
             name="information"
-            value="{{ recipe.information }}"
+            value="{{ items.information }}"
             
             >
             </textarea>
         </div>
         
-        <button id="only-button" type="submit">Salva receita</button>
 
         <input 
             type="hidden" 
@@ -71,6 +90,9 @@
             value="{{ recipe.id }}">
     </form>
 
+    <form id="form-delete" action="/admin/recipes?_method=DELETE" method="POST">
+        <input type="hidden" name="id" value="{{ items.id }}">
+    </form>
 </section>
 
 <script src="/js/addIngredient.js"></script>

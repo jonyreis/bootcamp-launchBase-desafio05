@@ -23,7 +23,7 @@
                     {# <img src="{{chef.avatar_url}}" alt="Foto da receita {{item.title}}" id="{{ loop.index }}"> #}
                     <div class="description">
                         <h3 id="{{ loop.index }}">{{chef.name}}</h3>
-                        <p>3 Receitas</p>
+                        <p>{{ chef.total_receipts }} Receitas</p>            
                     </div>
                 </div>
                 {% endfor %}

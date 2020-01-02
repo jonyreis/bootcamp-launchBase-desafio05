@@ -9,7 +9,10 @@ module.exports = {
         })
     },
     create(req, res) {
-        return res.render('admin/createRecipe')
+
+        Recipe.chefsSelectOptions(function(options) {
+            return res.render('admin/createRecipe', { chefOptions: options })
+        })
     },
     post(req, res) {
         const keys = Object.keys(req.body)
@@ -33,18 +36,30 @@ module.exports = {
 
     },
     edit(req, res) {
-        Recipe.update(req.params.id, function(items) {
+        Recipe.find(req.params.id, function(items) {
             if(!items) return res.send('Recipe not found!')
 
-            return res.render('admin/edit', { items })
+            Recipe.chefsSelectOptions(function(options) {
+                return res.render('admin/editRecipe', { items, chefOptions: options })
+            })
         })
     },
     put(req, res) {
-        return
+        const keys = Object.keys(req.body)
 
+        for (key of keys) {
+            if (req.body[key] == "") {
+                return res.send('Please, fill all fields!')
+            }
+        }
+        
+        Recipe.update(req.body, function() {
+            return res.redirect(`/admin/recipes/${req.body.id}`)
+        })
     },
     delete(req, res) {
-        return
-
+        Recipe.delete(req.body.id, function() {
+            return res.redirect("/admin/recipes")
+        })
     }
 }

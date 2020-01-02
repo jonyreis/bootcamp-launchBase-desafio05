@@ -25,22 +25,27 @@
             >
         </div>
 
-        <h3>Autor da receita</h3>
-        <div>
-            <input 
-                type="text" 
-                name="author"
-            >
-        </div>
-
         <h3>Imagem da receita</h3>
         <div>
             <input 
                 type="url" 
                 name="image"
                 placeholder="https://"
+                value=""
             >
         </div>
+
+        <h3>Chef</h3>
+        <div>
+            <select name="chef">
+                {% for chef in chefOptions %}
+                <option value="{{ chef.id }}" {% if receipts.chef_id == chef.id %}selected{% endif %}>
+                    {{ chef.name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
 
         <h3>Ingredientes</h3>
         <div id="ingredients">       

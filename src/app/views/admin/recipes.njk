@@ -24,12 +24,12 @@
             <div class="description">
                 <h3>{{ item.title }}</h3>
                 <p>por {{ item.author }}</p>
-                <a id="{{ loop.index }}">Visualizar</a>
+                <a href="/admin/recipes/{{ item.id }}">Visualizar</a>
             </div>
         </div>
         {% endfor %}
 
     </div>
 </section>
-<script src="/js/openPageAdmin.js"></script>
+{# <script src="/js/openPageAdmin.js"></script> #}
 {% endblock content %}

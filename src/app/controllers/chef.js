@@ -43,7 +43,7 @@ module.exports = {
 
         for (key of keys) {
             if (req.body[key] == "") {
-                return res.send('aaa, fill all fields!')
+                return res.send('Please, fill all fields!')
             }
         }
         
@@ -55,6 +55,5 @@ module.exports = {
         Chef.delete(req.body.id, function() {
             return res.redirect("/admin/chefs")
         })
-
     }
 }
