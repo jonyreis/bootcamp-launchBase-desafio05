@@ -29,14 +29,14 @@
        
        <h2>Receitas</h2>
 
-       {# {% for item in items %} #}
-        {# <div> #}
-            {# <a href="/recipes/{{ item.id }}"><img src="{{item.image}}" alt="Foto da receita {{item.title}}"></a> #}
-            {# <h3 id="{{ item.id }}">{{item.title}}</h3> #}
-            {# <p>{{item.chef_id}}</p> #}
-            {# <a href="/recipes/{{ item.id }}">{{item.title}}</a> #}
-        {# </div> #}
-        {# {% endfor %} #}
+       {% for item in items %}
+        <div>
+            <a href="/recipes/{{ item.id }}"><img src="{{item.image}}" alt="Foto da receita {{item.title}}"></a>
+            <h3 id="{{ item.id }}">{{item.title}}</h3>
+            <p>{{item.chef_id}}</p>
+            <a href="/recipes/{{ item.id }}">{{item.title}}</a>
+        </div>
+        {% endfor %}
     </div>
 
 

@@ -23,9 +23,18 @@ const User = require('../models/User')
 module.exports = {
     index(req, res) {
 
-        User.all(function(items) {
-            return res.render('user/index', { items })
-        })
+        const { filter } = req.query
+
+        if (filter) {
+            User.findBy(filter, function(items) {
+                return res.render('user/index', { items })
+            })
+
+        } else {
+            User.all(function(items) {
+                return res.render('user/index', { items })
+            })
+        }
     },
     sobre(req, res) {
 

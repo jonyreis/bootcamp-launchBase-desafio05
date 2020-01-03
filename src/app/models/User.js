@@ -21,9 +21,7 @@ module.exports = {
             callback(results.rows)
         })
     },
-
     find(id, callback) {
-
         db.query(`
             SELECT receipts.*, chefs.name AS chef_name 
             FROM receipts
