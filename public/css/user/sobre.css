@@ -1,7 +1,8 @@
-/* ===== SOBRE CSS ===== */
+/* ===== ABOUT ===== */
 
 .sobre {
-    color: #111;
+    max-width: 940px;
+    margin: 0  auto;
 }
 
 .sobre p {

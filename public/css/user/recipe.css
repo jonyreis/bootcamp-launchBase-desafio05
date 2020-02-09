@@ -1,5 +1,10 @@
 /*===== RECIPE ===== */
 
+.recipe {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
 .recipe-description {
     margin-top: 50px;
     text-align: center;

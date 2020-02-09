@@ -23,17 +23,13 @@ body, a {
     font-family: 'Roboto', sans-serif;
 }
 
-.max-width {
-    margin: 0 auto;
-    max-width: 940px;
-}
-
 /* ==== HEADER ==== */
 
 .nav-menu {
+    max-width: 940px;
+    margin: 30px auto;
     display: grid;
     grid-template-columns:1fr 2fr 2fr; 
-    margin: 30px 0;
 }
 
 .nav-menu ul li {
@@ -58,8 +54,4 @@ body, a {
 
 footer p {
     margin: 16px;
-}
-
-footer a {
-    color: #999;
 }

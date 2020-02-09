@@ -9,7 +9,7 @@ module.exports = {
 
         if (filter) {
             Recipe.findBy(filter, function(recipes) {
-                return res.render('user/recipes', { filter, recipes })
+                return res.render('user/search', { filter, recipes })
             })
 
         } else {
@@ -20,17 +20,7 @@ module.exports = {
     },
     about(req, res) {
 
-        const { filter } = req.query
-
-        if (filter) {
-            Recipe.findBy(filter, function(recipes) {
-                return res.render('user/recipes', { filter, recipes })
-            })
-
-        } else {
-
-            return res.render('user/sobre')
-        }
+        return res.render('user/sobre')
         
     },
     recipes(req, res) {
@@ -39,7 +29,7 @@ module.exports = {
 
         if (filter) {
             Recipe.findBy(filter, function(recipes) {
-                return res.render('user/recipes', { filter, recipes })
+                return res.render('user/search', { filter, recipes })
             })
 
         } else {
@@ -52,36 +42,16 @@ module.exports = {
     },
     showRecipe(req, res) {
 
-        const { filter } = req.query
-
-        if (filter) {
-            Recipe.findBy(filter, function(recipes) {
-                return res.render('user/recipes', { filter, recipes })
-            })
-
-        } else {
-
-            Recipe.find(req.params.id, function(recipe) {
-                if(!recipe) return res.send('Recipes not found!')
-                            
-                return res.render('user/recipe', { recipe })
-            })
-        }
+        Recipe.find(req.params.id, function(recipe) {
+            if(!recipe) return res.send('Recipes not found!')
+                        
+            return res.render('user/recipe', { recipe })
+        })
     },
     chefs(req, res) {
 
-        const { filter } = req.query
-
-        if (filter) {
-            Recipe.findBy(filter, function(recipes) {
-                return res.render('user/recipes', { filter, recipes })
-            })
-
-        } else {
-
-            Chef.all(function(chefs) {
-                return res.render('user/chefs', { chefs })
-            })
-        }
+        Chef.all(function(chefs) {
+            return res.render('user/chefs', { chefs })
+        })
     }
 }

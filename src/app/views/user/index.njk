@@ -3,32 +3,26 @@
 {% block head %}
 
     <link rel="stylesheet" href="/css/user/index.css">
-    
     <title>Home | Foodfy</title>
 
 {% endblock %}
 
-{% block header %}
-    
-{% endblock %}
 {% block search %}
-    <form action="/" method="get">
-        <input
-            type="text" 
+    <form action="" method="get">
+        <input 
+            type="search" 
             name="filter" 
-            placeholder=" Buscar uma receita"
-            value="{{filter}}"
+            placeholder="Buscar uma receita"
         >
         <button type="submit">Buscar</button>            
     </form>
 {% endblock %}
 
 {% block content %}
-
     
     <!-- ===== MAIN ===== -->
 
-    <main class="bg-main max-width">
+    <main class="bg-main">
         <div class="intro">
             <h1>As melhores receitas</h1>
             <p>Aprenda a construir os melhores pratos com receitas 
@@ -36,25 +30,23 @@
         </div>
         <img src="/assets/chef.png" alt="" srcset="">
     </main>
-    <section class="max-width">
 
-    <!-- ===== RECIPES ===== -->   
+    <!-- ===== RECIPES ===== -->
 
-        <div class="recipes">
+    <div class="recipes">
 
-            <h2>Mais acessadas</h2>
+        <h2>Mais acessadas</h2>
 
-            <div class="recipes-item">
-                {% for recipe in recipes %}
-                <div>
-                    <a href="/recipes/{{ recipe.id }}"><img src="{{recipe.image}}" alt="Foto da receita {{recipe.title}}"></a>
-                    <a href="/recipes/{{ recipe.id }}"><h3>{{recipe.title}}</h3></a>
-                    <p>por {{ recipe.chef_name }}</p>
-                </div>
-                {% endfor %}
+        <div class="recipes-item">
+            {% for recipe in recipes %}
+            <div>
+                <a href="/recipes/{{ recipe.id }}"><img src="{{recipe.image}}" alt="Foto da receita {{recipe.title}}"></a>
+                <a href="/recipes/{{ recipe.id }}"><h3>{{recipe.title}}</h3></a>
+                <p>por {{ recipe.chef_name }}</p>
             </div>
-
+            {% endfor %}
         </div>
-    </section>
+        
+    </div>
 
 {% endblock %}

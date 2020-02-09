@@ -1,7 +1,8 @@
-/* ==== MAIN ==== */
+/* ==== SEARCH ==== */
 
 .nav-menu form {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .nav-menu form input {
@@ -10,6 +11,8 @@
     border-radius: 4px;
     width: 246px;
     height: 37px;
+    padding: 15px 10px;
+    outline: none;
 }
 
 .nav-menu form button {
@@ -22,23 +25,30 @@
     width: 91px;
     height: 37px;
     cursor: pointer;
+    margin-left: 8px;
 }
 
+/* ==== MAIN ==== */
+
 .bg-main {
+    max-width: 940px;
+    height: 366px;
+    margin: 0 auto;
     background: #FBDFDB;
     border-radius: 30px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
+}
+
+.bg-main img {
+    margin-top: 66px;
+    max-height: 300px;
+    max-width: 216px;
 }
 
 .intro {
     max-width: 320px;
-}
-
-.bg-main img {
-    margin-top: 60px;
 }
 
 .intro h1 {
@@ -55,11 +65,16 @@
 
 /* ==== RECIPES ==== */
 
+.recipes {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
 .recipes h2 {
     display: inline-block;
     font-size: 24px;
     font-weight: bold;
-    margin-top: 50px;
+    margin-top: 22px;
     margin-bottom: 20px;
 }
 
@@ -71,15 +86,20 @@
 }
 
 .recipes-item img {
+    width: 300px;
+    height: 140px;
+    object-fit: cover;
     border-radius: 15px;
     cursor: pointer;
 }
 
 .recipes-item h3 {
+    display: inline-block;
     cursor: pointer;
     font-size: 18px;
+    font-weight: normal;
     margin-top: 15px;
-    margin-bottom: 10px;
+    padding: 5px 5px 5px 0;
 }
 
 .recipes-item h3:hover {

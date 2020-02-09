@@ -7,16 +7,14 @@
     <link rel="shortcut icon" href="/assets/icon-burger.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">    
     <link rel="stylesheet" href="/css/user/layoutUser.css">
-
-{% block head %}
-{% endblock %}
-
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
 
     <!-- ===== HEADER ===== -->
 
-    <header class="max-width">
+    <header>
         <nav class="nav-menu">
             <a href="/"><img src="/assets/logo-preto.png" alt="Logo recipefy" srcset=""></a>
             <ul>
@@ -25,14 +23,6 @@
                 <li><a href="/chefs">Chefs</a></li>
             </ul>
             {% block search %}
-                <form action="" method="get">
-                    <input 
-                        type="search" 
-                        name="filter" 
-                        placeholder="Buscar uma receita"
-                    >
-                    <button type="submit">Buscar</button>            
-                </form>
             {% endblock %}
         </nav>
     </header>
@@ -42,7 +32,6 @@
 
     <footer class="footer">
         <p>Todos direitos reservados, receitas foodfy.</p>
-        <a href="/admin/recipes" id="admin">Admin</a>
     </footer>
 
 </body>
