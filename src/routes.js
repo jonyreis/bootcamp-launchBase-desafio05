@@ -6,7 +6,7 @@ const chefs = require('./app/controllers/chef')
 const routes = express.Router()
 
 routes.get('/', users.index)
-routes.get('/sobre', users.sobre)
+routes.get('/sobre', users.about)
 routes.get('/recipes', users.recipes)
 routes.get('/recipes/:id', users.showRecipe)
 routes.get('/chefs', users.chefs)

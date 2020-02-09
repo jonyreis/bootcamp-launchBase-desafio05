@@ -9,7 +9,11 @@
 
 {% block header %}
     <form action="" method="get">
-        <input type="search" name="" placeholder=" Buscar uma receita">
+        <input 
+            type="search" 
+            name="filter" 
+            placeholder="Buscar uma receita"
+        >
         <button type="submit">Buscar</button>            
     </form>
 {% endblock %}
@@ -25,12 +29,11 @@
             <h2>Receitas</h2>
 
             <div class="recipes-item">
-                {% for item in items %}
+                {% for recipe in recipes %}
                 <div>
-                    <a href="/recipes/{{ item.id }}"><img src="{{item.image}}" alt="Foto da receita {{item.title}}"></a>
-                    {# <h3 id="{{ item.id }}">{{item.title}}</h3> #}
-                    <p>{{item.chef_id}}</p>
-                    <a href="/recipes/{{ item.id }}">{{item.title}}</a>
+                    <a href="/recipes/{{ recipe.id }}"><img src="{{recipe.image}}" alt="Foto da receita {{item.title}}"></a>
+                    <a href="/recipes/{{ recipe.id }}">{{recipe.title}}</a>                    
+                    <p>{{recipe.chef_name}}</p>
                 </div>
                 {% endfor %}
 

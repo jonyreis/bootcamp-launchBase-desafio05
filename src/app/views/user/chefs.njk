@@ -16,17 +16,16 @@
 
         <div class="chefs">
 
-                {% for chef in chefs %}
-                <div class="chefs-item" id="{{ loop.index }}">
-                    <div class="avatar" style="background: url({{ chef.avatar_url }}) no-repeat center center / cover" >
-                    </div>
-                    {# <img src="{{chef.avatar_url}}" alt="Foto da receita {{item.title}}" id="{{ loop.index }}"> #}
-                    <div class="description">
-                        <h3 id="{{ loop.index }}">{{chef.name}}</h3>
-                        <p>{{ chef.total_receipts }} Receitas</p>            
-                    </div>
+            {% for chef in chefs %}
+            <div class="chefs-item" id="{{ loop.index }}">
+                <div class="avatar" style="background: url({{ chef.avatar_url }}) no-repeat center center / cover" >
                 </div>
-                {% endfor %}
+                <div class="description">
+                    <h3 id="{{ loop.index }}">{{chef.name}}</h3>
+                    <p>{{ chef.total_receipts }} Receitas</p>            
+                </div>
+            </div>
+            {% endfor %}
 
         </div>
 

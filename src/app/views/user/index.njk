@@ -9,14 +9,7 @@
 {% endblock %}
 
 {% block header %}
-    <form action="/admin/recipes" method="get">
-        <input
-            type="text" 
-            name="filter" 
-            placeholder=" Buscar uma receita"
-        >
-        <button type="submit">Buscar</button>            
-    </form>
+    
 {% endblock %}
 
 {% block content %}
@@ -40,11 +33,11 @@
             <h2>Mais acessadas</h2>
 
             <div class="recipes-item">
-                {% for item in items %}
+                {% for recipe in recipes %}
                 <div>
-                    <a href="/recipes/{{ item.id }}"><img src="{{item.image}}" alt="Foto da receita {{item.title}}"></a>
-                    <a href="/recipes/{{ item.id }}"><h3>{{item.title}}</h3></a>
-                    <p>por</p>
+                    <a href="/recipes/{{ recipe.id }}"><img src="{{recipe.image}}" alt="Foto da receita {{recipe.title}}"></a>
+                    <a href="/recipes/{{ recipe.id }}"><h3>{{recipe.title}}</h3></a>
+                    <p>por {{ recipe.chef_name }}</p>
                 </div>
                 {% endfor %}
             </div>

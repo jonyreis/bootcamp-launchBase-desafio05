@@ -4,7 +4,7 @@
 
     <link rel="stylesheet" href="/css/user/recipe.css">
 
-    <title>{{item.title}} | Foodfy</title>
+    <title>{{recipe.title}} | Foodfy</title>
 
 {% endblock %}
 
@@ -15,11 +15,11 @@
 <section class="max-width">
     <div class="recipe">
 
-        <img src="{{item.image}}" alt="Foto do {{items.title}}">
+        <img src="{{recipe.image}}" alt="Foto do {{recipe.title}}">
         
         <div class="recipe-description">
-            <h1>{{item.title}}</h1>
-            <p>por {{item.author}}</p>
+            <h1>{{recipe.title}}</h1>
+            <p>por {{recipe.chef_name}}</p>
 
         </div>
         <div class="recipe-info">
@@ -27,20 +27,20 @@
 
                 <dt>Ingredientes</dt>
                 <dd>
-                    {% for ingredients in item.ingredients %}
+                    {% for ingredients in recipe.ingredients %}
                     <li>{{ingredients}}</li>
                     {% endfor %}
                 </dd>
 
                 <dt>Modo de Preparo</dt>
                 <dd>
-                    {% for preparation in item.preparation %}   
+                    {% for preparation in recipe.preparation %}   
                     <li>{{preparation}}</li>
                     {% endfor %}
                 </dd>
 
                 <dt>Informações adicionais</dt>
-                <dd>{{ items.information | striptags(true) | escape | nl2br }}</dd>
+                <dd>{{ recipe.information | striptags(true) | escape | nl2br }}</dd>
             </dl>
         </div>
 

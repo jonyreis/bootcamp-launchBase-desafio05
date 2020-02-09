@@ -5,8 +5,11 @@ const db = require('../../config/db')
 
 module.exports = {
     all(callback) {
-        db.query(`SELECT * FROM receipts`, function(err, results) {
-            if(err) return res.send('Database Error!')
+        db.query(`
+        SELECT receipts.* , chefs.name AS chef_name
+        FROM receipts
+        LEFT JOIN chefs ON (receipts.chef_id = chefs.id)`, function(err, results) {
+            if(err) return res.send(`Database Error! ${err}`)
 
             callback(results.rows)
         })
@@ -44,7 +47,7 @@ module.exports = {
     },
     find(id, callback) {
         db.query(`
-            SELECT receipts.*, chefs.name AS chef_id
+            SELECT receipts.*, chefs.name AS chef_name
             FROM receipts
             LEFT JOIN chefs ON (receipts.chef_id = chefs.id)
             WHERE receipts.id = $1`, [id], function(err, results) {
@@ -52,7 +55,31 @@ module.exports = {
 
                 callback(results.rows[0])
         }) 
-    },  
+    },
+    // findBy(filter, callback) {
+    //     db.query(`
+    //     SELECT receipts.*
+    //     FROM receipts
+    //     WHERE receipts.title ILIKE '%${filter}%'
+    //     GROUP BY receipts.id`, function(err, results) {
+    //         if(err) return res.send('Database Error!')
+
+    //         callback(results.rows)
+    //     })
+    // },
+    findBy(filter, callback) {
+        db.query(`
+          SELECT receipts.*, count(chefs) AS chef_name
+          FROM receipts
+          LEFT JOIN chefs ON (receipts.chef_id =  chefs.id)
+          WHERE receipts.title ILIKE '%${filter}%'
+          GROUP BY receipts.id
+          `, function(err, results) {
+          if(err) throw `Database error! + ${err}`
+          
+          callback(results.rows)
+        })
+      },
     update(data, callback) {
         const query = `
             UPDATE receipts SET

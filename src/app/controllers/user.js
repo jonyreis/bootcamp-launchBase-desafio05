@@ -1,24 +1,6 @@
-const User = require('../models/User')
+const Recipe = require('../models/Recipe')
+const Chef = require('../models/Chef')
 
-// exports.home =  function(req, res) {
-//     return res.render('user/home', { items : data.recipes })
-// }
-
-// exports.sobre = function(req, res) {
-//     return res.render('user/sobre')
-// }
-
-// exports.recipes = function(req, res) {
-//     return res.render('user/recipes', { items : data.recipes })
-// }
-
-// exports.showIndex = function (req, res) {
-//     const recipeData = data.recipes // Array de receitas carregadas do data.js
-//     const recipeIndex = req.params.index
-//     const id = recipeData[recipeIndex - 1]
-  
-//     return res.render('user/recipe', { items: id } )
-// }
 
 module.exports = {
     index(req, res) {
@@ -26,41 +8,39 @@ module.exports = {
         const { filter } = req.query
 
         if (filter) {
-            User.findBy(filter, function(items) {
-                return res.render('user/index', { items })
+            Recipe.findBy(filter, function(recipes) {
+                return res.render('user/recipes', { filter, recipes })
             })
 
         } else {
-            User.all(function(items) {
-                return res.render('user/index', { items })
+            Recipe.all(function(recipes) {
+                return res.render('user/index', { recipes })
             })
         }
     },
-    sobre(req, res) {
+    about(req, res) {
 
-        User.all(function(items) {
-            return res.render('user/sobre')
-        })
+        return res.render('user/sobre')
+        
     },
     recipes(req, res) {
 
-        User.all(function(items) {
-            return res.render('user/recipes', { items })
+        Recipe.all(function(recipes) {
+            return res.render('user/recipes', { recipes })
         })
+
     },
     showRecipe(req, res) {
 
-        User.find(req.params.id, function(item) {
-            if(!item) return res.send('Recipes not found!')
-            
-            // items.created_at = date(items.created_at).format
-            
-            return res.render('user/recipe', { item })
+        Recipe.find(req.params.id, function(recipe) {
+            if(!recipe) return res.send('Recipes not found!')
+                        
+            return res.render('user/recipe', { recipe })
         })
     },
     chefs(req, res) {
 
-        User.allchefs(function(chefs) {
+        Chef.all(function(chefs) {
             return res.render('user/chefs', { chefs })
         })
     }
