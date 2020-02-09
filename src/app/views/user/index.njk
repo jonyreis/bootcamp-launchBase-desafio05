@@ -11,8 +11,20 @@
 {% block header %}
     
 {% endblock %}
+{% block search %}
+    <form action="/" method="get">
+        <input
+            type="text" 
+            name="filter" 
+            placeholder=" Buscar uma receita"
+            value="{{filter}}"
+        >
+        <button type="submit">Buscar</button>            
+    </form>
+{% endblock %}
 
 {% block content %}
+
     
     <!-- ===== MAIN ===== -->
 

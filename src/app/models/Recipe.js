@@ -56,17 +56,6 @@ module.exports = {
                 callback(results.rows[0])
         }) 
     },
-    // findBy(filter, callback) {
-    //     db.query(`
-    //     SELECT receipts.*
-    //     FROM receipts
-    //     WHERE receipts.title ILIKE '%${filter}%'
-    //     GROUP BY receipts.id`, function(err, results) {
-    //         if(err) return res.send('Database Error!')
-
-    //         callback(results.rows)
-    //     })
-    // },
     findBy(filter, callback) {
         db.query(`
           SELECT receipts.*, count(chefs) AS chef_name

@@ -24,15 +24,16 @@
                 <li><a href="/recipes">Receitas</a></li>
                 <li><a href="/chefs">Chefs</a></li>
             </ul>
-            <form action="/" method="get">
-                <input
-                    type="text" 
-                    name="filter" 
-                    placeholder=" Buscar uma receita"
-                    value="{{filter}}"
-                >
-                <button type="submit">Buscar</button>            
-            </form>
+            {% block search %}
+                <form action="" method="get">
+                    <input 
+                        type="search" 
+                        name="filter" 
+                        placeholder="Buscar uma receita"
+                    >
+                    <button type="submit">Buscar</button>            
+                </form>
+            {% endblock %}
         </nav>
     </header>
 

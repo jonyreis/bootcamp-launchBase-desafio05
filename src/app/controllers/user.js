@@ -20,28 +20,68 @@ module.exports = {
     },
     about(req, res) {
 
-        return res.render('user/sobre')
+        const { filter } = req.query
+
+        if (filter) {
+            Recipe.findBy(filter, function(recipes) {
+                return res.render('user/recipes', { filter, recipes })
+            })
+
+        } else {
+
+            return res.render('user/sobre')
+        }
         
     },
     recipes(req, res) {
 
-        Recipe.all(function(recipes) {
-            return res.render('user/recipes', { recipes })
-        })
+        const { filter } = req.query
+
+        if (filter) {
+            Recipe.findBy(filter, function(recipes) {
+                return res.render('user/recipes', { filter, recipes })
+            })
+
+        } else {
+
+            Recipe.all(function(recipes) {
+                return res.render('user/recipes', { recipes })
+            })
+        }
 
     },
     showRecipe(req, res) {
 
-        Recipe.find(req.params.id, function(recipe) {
-            if(!recipe) return res.send('Recipes not found!')
-                        
-            return res.render('user/recipe', { recipe })
-        })
+        const { filter } = req.query
+
+        if (filter) {
+            Recipe.findBy(filter, function(recipes) {
+                return res.render('user/recipes', { filter, recipes })
+            })
+
+        } else {
+
+            Recipe.find(req.params.id, function(recipe) {
+                if(!recipe) return res.send('Recipes not found!')
+                            
+                return res.render('user/recipe', { recipe })
+            })
+        }
     },
     chefs(req, res) {
 
-        Chef.all(function(chefs) {
-            return res.render('user/chefs', { chefs })
-        })
+        const { filter } = req.query
+
+        if (filter) {
+            Recipe.findBy(filter, function(recipes) {
+                return res.render('user/recipes', { filter, recipes })
+            })
+
+        } else {
+
+            Chef.all(function(chefs) {
+                return res.render('user/chefs', { chefs })
+            })
+        }
     }
 }
