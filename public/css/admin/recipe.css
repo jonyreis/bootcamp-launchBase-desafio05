@@ -1,0 +1,47 @@
+/*===== SHOW RECIPE ===== */
+
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.recipe > .intro {
+    margin-top: 55px;
+}
+
+.recipe img {
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 26px;
+}
+
+.recipe-description {
+    text-align: center;
+}
+
+.recipe-description h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.recipe-description p {
+    color: #777;
+    font-size: 20px;
+}
+
+.recipe-info {
+    padding: 20px 0 40px 0;
+}
+
+.recipe-info dl dt {
+    color: #111;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.recipe-info dl dd {
+    color: #444;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 10px 0;
+}

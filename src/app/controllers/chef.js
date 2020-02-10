@@ -24,12 +24,12 @@ module.exports = {
         })
     },
     show(req, res) {
-        Chef.find(req.params.id, function(chef) {
-            if(!chef) return res.send('Chef not found!')
-
-            return res.render('admin/chef', { chef })
+        Chef.find(req.params.id, function (chef) {
+            Chef.findChefRecipes(req.params.id, function (recipes) {
+                
+            return res.render('admin/chef', { chef, recipes })
+            })
         })
-
     },
     edit(req, res) {
         Chef.find(req.params.id, function(chefs) {

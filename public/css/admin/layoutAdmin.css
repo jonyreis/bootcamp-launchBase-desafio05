@@ -23,11 +23,6 @@ body, a {
     font-family: 'Roboto', sans-serif;
 }
 
-.max-width {
-    margin: 0 auto;
-    max-width: 940px;
-}
-
 .bg-header {
     background-color: #111;
     padding: 25px 0;
@@ -37,9 +32,12 @@ body, a {
     display: grid;
     grid-template-columns: 1fr 3fr;
     align-items: center;
+    max-width: 940px;
+    margin: 0 auto;
 }
 
 .nav-menu ul li {
+    color: #999;
     display: inline;
     font-size: 15px;
     margin-left: 30px;
@@ -47,110 +45,10 @@ body, a {
 }
 
 .nav-menu a {
+    color: #999;
+    font-weight: bold;
+}
+
+.nav-menu a:hover {
     color: #fff;
-}
-
-/* === RECIPES === */
-
-.intro {
-    display: flex;
-    margin-top: 50px;
-    justify-content: space-between;
-}
-
-.intro h2 {
-    color: #111;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.recipes-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.item {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-}
-
-.image {
-    border-radius: 9px;
-    width: 172px;
-    height: 80px;
-}
-
-.image-chef {
-    border-radius: 50%;
-    width: 64px;
-    height: 64px;
-}
-
-.description {
-    margin-left: 10px;
-}
-
-.description h3 {
-    color: #111;
-    font-size: 18px;
-}
-
-.description p {
-    color: #777;
-    font-size: 14px;
-    margin: 4px 0 16px 0;
-}
-
-.description a {
-    color: #6558C3;
-    cursor: pointer;
-    font-size: 14px;
-    text-decoration: none;
-}
-
-
-
-/*===== Show ===== */
-
-.recipe > .intro {
-    margin-top: 55px;
-}
-
-.recipe img {
-    border-radius: 15px;
-    margin-top: 20px;
-    margin-bottom: 26px;
-}
-
-.recipe-description {
-    text-align: center;
-}
-
-.recipe-description h1 {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.recipe-description p {
-    color: #777;
-    font-size: 20px;
-}
-
-.recipe-info {
-    padding: 20px 0 40px 0;
-}
-
-.recipe-info dl dt {
-    color: #111;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.recipe-info dl dd {
-    color: #444;
-    font-size: 18px;
-    line-height: 28px;
-    margin: 10px 0;
 }

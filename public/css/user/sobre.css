@@ -16,3 +16,15 @@
     font-size: 20px;
     font-weight: bold;
 }
+
+/* ==== FOOTER ==== */
+
+footer {
+    margin-top: 20px;
+    background: #eee;
+    width: 100%;
+    color: #999;
+    padding: 23px 0;
+    font-size: 14px;
+    text-align: center;
+}

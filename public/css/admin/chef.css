@@ -1,12 +1,5 @@
 /* === Chef === */
 
-h2 {
-    color: #111;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 28px;
-}
-
 .chef img {
     border-radius: 50%;
     display: block;
@@ -18,4 +11,52 @@ h2 {
 .chef-description {
     text-align: center;
     margin-bottom: 50px;
+}
+
+.chef-description h1 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.chef-description p {
+    font-size: 20px;
+    color: #777777;
+}
+
+.recipe {
+    margin-bottom: 30px;
+}
+
+.recipe-chef {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.recipe-chef img {
+    width: 172px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.recipe {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.recipe img {
+    border-radius: 9px;
+}
+
+.recipe-description p {
+    margin: 5px 0 10px 0;
+    font-size: 14px;
+    color: #777777;
+}
+
+.recipe-description a {
+    font-size: 14px;
+    font-weight: bold;
+    color: #6558C3;
 }

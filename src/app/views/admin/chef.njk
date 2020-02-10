@@ -9,37 +9,40 @@
 
 {% block content %}
     
-    <!-- ===== PRODUTCS ===== -->
+    <!-- ===== CHEF ===== -->
 
-<section class="max-width">
+    <section class="container">
 
-    <div class="intro">
-        <h2>Chef: {{ chef.name }}</h2>
-        <a href="/admin/chefs/{{chef.id}}/edit" id="only-button" style="text-decoration: none;">Editar chef</a>
-    </div>
-
-    <div class="chef">
-
-        <img src="{{chef.avatar_url}}" alt="Fodo do {{chef.name}}">
-        
-        <div class="chef-description">
-            <h1>{{ chef.name }}</h1>
-
+        <div class="intro">
+            <h2>Chef: {{ chef.name }}</h2>
+            <a href="/admin/chefs/{{ chef.id }}/edit" id="only-button" style="text-decoration: none;">Editar chef</a>
         </div>
-       
-       <h2>Receitas</h2>
 
-       {% for item in items %}
-        <div>
-            <a href="/recipes/{{ item.id }}"><img src="{{item.image}}" alt="Foto da receita {{item.title}}"></a>
-            <h3 id="{{ item.id }}">{{item.title}}</h3>
-            <p>{{item.chef_id}}</p>
-            <a href="/recipes/{{ item.id }}">{{item.title}}</a>
+        <div class="chef">
+            <img src="{{chef.avatar_url}}" alt="Fodo do {{chef.name}}">
+            <div class="chef-description">
+                <h1>{{ chef.name }}</h1>
+                <p>{{ chef.total_receipts }} receitas</p>
+            </div>
         </div>
-        {% endfor %}
-    </div>
 
+        <h2 class="recipe">Receitas</h2>
 
-</section>
+        <div class="recipe-chef">
+            {% for recipe in recipes %}
+            <div class="recipe">
+                <div>
+                    <a href="/recipes/{{ recipe.chefs.id }}"><img src="{{recipe.image}}" alt="Foto da receita {{recipe.title}}"></a>
+                </div>
+                <div class="recipe-description">
+                    <h3 id="{{ recipe.id }}">{{recipe.title}}</h3>
+                    <p>por {{ chef.name }}</p>
+                    <a href="/recipes/{{ recipe.id }}">Visualizar</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </section>
 
 {% endblock %}

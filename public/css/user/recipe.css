@@ -5,6 +5,10 @@
     margin: 0 auto;
 }
 
+.recipe img {
+    border-radius: 16px;
+}
+
 .recipe-description {
     margin-top: 50px;
     text-align: center;

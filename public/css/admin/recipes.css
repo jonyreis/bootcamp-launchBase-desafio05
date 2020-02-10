@@ -1,0 +1,54 @@
+/* === RECIPES === */
+
+.container {
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+.recipes-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.image {
+    border-radius: 9px;
+    width: 172px;
+    height: 80px;
+}
+
+.image-chef {
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+}
+
+.description {
+    margin-left: 10px;
+}
+
+.description h3 {
+    color: #111;
+    font-size: 18px;
+}
+
+.description p {
+    color: #777;
+    font-size: 14px;
+    margin: 5px 0 10px 0;
+}
+
+.description a {
+    color: #6558C3;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+

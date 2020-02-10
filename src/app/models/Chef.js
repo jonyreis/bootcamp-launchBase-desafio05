@@ -41,13 +41,27 @@ module.exports = {
     },
     find(id, callback) {
         db.query(`
-            SELECT *
-            FROM chefs
-            WHERE id = $1`, [id], function(err, results) {
-                if(err) throw `Database Error! ${err}`
+            SELECT chefs.*, count(receipts) AS total_receipts 
+            FROM chefs 
+            LEFT JOIN receipts ON (chefs.id = receipts.chef_id)
+            WHERE chefs.id = $1
+            GROUP BY chefs.id`, [id], function(err, results) {
+                if(err) throw `Database error! ${err}`
 
                 callback(results.rows[0])
-        }) 
+          
+        })
+    },
+    findChefRecipes(id, callback) {
+    db.query(`
+        SELECT *
+        FROM receipts
+        LEFT JOIN chefs ON (receipts.chef_id = chefs.id)
+        WHERE chefs.id = $1`, [id], function(err, results) {
+            if(err) throw `Database error! + ${err}`
+
+            callback(results.rows)
+        })
     },
     update(data, callback) {
         const query = `

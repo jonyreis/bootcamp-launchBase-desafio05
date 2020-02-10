@@ -86,9 +86,8 @@
 }
 
 .recipes-item img {
-    width: 300px;
+    width: 100%;
     height: 140px;
-    object-fit: cover;
     border-radius: 15px;
     cursor: pointer;
 }
@@ -109,4 +108,16 @@
 .recipes-item p {
     color: #777;
     font-size: 14px;
+}
+
+/* ==== FOOTER ==== */
+
+footer {
+    margin-top: 20px;
+    background: #eee;
+    width: 100%;
+    color: #999;
+    padding: 23px 0;
+    font-size: 14px;
+    text-align: center;
 }
